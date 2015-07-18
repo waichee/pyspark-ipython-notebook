@@ -55,14 +55,15 @@ Install Python
 
 
 Install Anaconda
------------------
+-----------------------------------
 
 Download Anaconda which include python 2.7 and the main scientific libraries
 http://ipython.org/install.html
 
-	conda update conda
-	conda update ipython ipython-notebook ipython-qtconsole
-
+```
+conda update conda
+conda update ipython ipython-notebook ipython-qtconsole
+```
 	
 Anaconda comes with free spyder IDE. There is other free IDEs and text editors such as Sublime, emacs.
 There's also non-free ones such as PyCharm by Jetbrains.
@@ -76,22 +77,31 @@ images, visualization and executing run code.
 
 Download the following python setup script from Github to create a new pyspark profile for running Ipython notebook
 https://github.com/felixcheung/vagrant-projects/blob/master/Spark-IPython-Zeppelin-Lightning/ipython-pyspark.py
+Run
+ 
 
-Run 
-	python ipython-pyspark.py
+```
+python ipython-pyspark.py
+```
 		
 Start ipython notebook from terminal
 
-	ipython notebook
-	
+```
+ipython notebook
+```	
+
 Open your browser and navigate to to view the ipython notebooks:
 
-	localhost:1088
+```
+localhost:1088
+```
 
 If you would like to change to a different port, modify the following line in the ipython-pyspark.py script
 
-	ip = '*' # Warning: this is potentially insecure
-	port = <new-port>
+```
+ip = '*' # Warning: this is potentially insecure
+port = <new-port>
+```
 
 Create a new notebook by 
 * New-> Python(2 or 3) 
@@ -100,10 +110,11 @@ Create a new notebook by
 
 Test that Pyspark is working from Ipython notebook by pasting the following to a cell and hit run
 
-	import math
-	testRdd = sc.parallelize([16,16,9])
-	testRdd.map(math.sqrt).collect()
-	
+```
+import math
+testRdd = sc.parallelize([16,16,9])
+testRdd.map(math.sqrt).collect()
+```	
 
 
 
