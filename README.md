@@ -3,7 +3,7 @@ Setting up IPython Notebook with PySpark
 
 This is a brief notes on setting up environments for running pyspark via ipython notebook 
 with Spark v1.4.1. The steps detailed are with running standalone spark on a single node.
-You could use the ec2 script for running on Amazon EC2, or directly create the EMR job and 
+If you wish to run on amazon clusters, there’s the spark’s ec2 script for running on Amazon EC2, or directly create the EMR job and 
 select Spark as an add-on via AWS Web console.
 
 
@@ -26,14 +26,17 @@ extract the tar file
 
 build spark as per the README.md. 
 alternatively you can download the pre-built version if you wish and you can skip this step.
+
 	mvn clean package -DskipTests
 
 Setup your environment variables for "SPARK_HOME" 
 E.g. in Unix environments, add the following to ~/.bash_profile
+
 	export SPARK_HOME=<location of the install>
 	export PATH=$SPARK_HOME/bin:$PATH
 
 verify that pyspark is installed ok
+
 	cd <spark-distro-directory>
 	./bin/pyspark
 	
@@ -56,6 +59,7 @@ Install Anaconda
 
 Download Anaconda which include python 2.7 and the main scientific libraries
 http://ipython.org/install.html
+
 	conda update conda
 	conda update ipython ipython-notebook ipython-qtconsole
 
@@ -77,12 +81,15 @@ Run
 	python ipython-pyspark.py
 		
 Start ipython notebook from terminal
+
 	ipython notebook
 	
 Open your browser and navigate to to view the ipython notebooks:
+
 	localhost:1088
 
 If you would like to change to a different port, modify the following line in the ipython-pyspark.py script
+
 	ip = '*' # Warning: this is potentially insecure
 	port = <new-port>
 
@@ -92,6 +99,7 @@ Create a new notebook by
 * Press play icon to run (or ctrl +enter)
 
 Test that Pyspark is working from Ipython notebook by pasting the following to a cell and hit run
+
 	import math
 	testRdd = sc.parallelize([16,16,9])
 	testRdd.map(math.sqrt).collect()
